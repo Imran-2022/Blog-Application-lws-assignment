@@ -4,7 +4,7 @@ import SideBar from './SideBar';
 
 const Home = () => {
     return (
-        <section class="wrapper">
+        <section className="wrapper">
             <SideBar />
             <Posts />
         </section>

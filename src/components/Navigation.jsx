@@ -1,19 +1,19 @@
 import React from 'react'
 import lwsLogo from "../assets/images/LWSBlog.svg"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 function Navigation() {
   return (
-    <nav class="py-4 border-b">
-    <div class="navbar-container">
-      <div class="logo">
-       <Link to="/"><img src={lwsLogo} alt="search" /></Link>
+    <nav className="py-4 border-b">
+      <div className="navbar-container">
+        <div className="logo">
+          <Link to="/"><img src={lwsLogo} alt="search" /></Link>
+        </div>
+        <div className="auth-buttons">
+          <button className="btn btn-primary">sign in</button>
+          <button className="btn btn-outline">sign up</button>
+        </div>
       </div>
-      <div class="auth-buttons">
-        <button class="btn btn-primary">sign in</button>
-        <button class="btn btn-outline">sign up</button>
-      </div>
-    </div>
-  </nav>
+    </nav>
   )
 }
 

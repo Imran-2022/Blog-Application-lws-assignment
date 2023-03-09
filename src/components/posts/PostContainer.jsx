@@ -4,7 +4,7 @@ import RelatedPostsContainer from './RelatedPostsContainer';
 
 const PostContainer = () => {
     return (
-        <section class="post-page-container">
+        <section className="post-page-container">
             <DetailedPost />
             <RelatedPostsContainer />
         </section>
