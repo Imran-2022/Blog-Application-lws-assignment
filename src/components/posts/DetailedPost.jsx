@@ -12,7 +12,7 @@ const DetailedPost = ({ video }) => {
         </h1>
         <div className="tags" id="lws-singleTags">
           {
-            tags?.map(tag => <span>{tag}</span>)
+            tags?.map(tag => <span>{tag}, </span>)
           }
         </div>
         <Like_Saved id={id} likes={likes} isSaved={isSaved} />

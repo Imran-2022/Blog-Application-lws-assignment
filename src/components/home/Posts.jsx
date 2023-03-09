@@ -9,13 +9,33 @@ const Posts = () => {
     const { posts, isLoading, isError, error } = useSelector(
         (state) => state.posts
     );
+    const { status, sort } = useSelector(
+        (state) => state.filter
+    );
 
     useEffect(() => {
         dispatch(fetchBlogs());
     }, [dispatch]);
 
+
+
+    // filter before showing in home page start
+    const filterByStatus = (dt) => {
+
+        if (status === 'all') {
+            return true;
+        } else if (status === 'saved') {
+            return dt.isSaved;
+        }
+        return true;
+        
+    }
+
+
+    // filter before showing in home page end
+
     // decide what to render
-    let content="hi";
+    let content = "hi";
 
     if (isLoading) content = <p>Loading wait....</p>;
     if (!isLoading && isError)
@@ -26,9 +46,11 @@ const Posts = () => {
     }
 
     if (!isError && !isLoading && posts?.length > 0) {
-        content = posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-        ));
+        content = posts
+            .filter(filterByStatus)
+            .map((post) => (
+                <PostCard key={post.id} post={post} />
+            ));
     }
     return (
         <main className="post-container" id="lws-postContainer">
