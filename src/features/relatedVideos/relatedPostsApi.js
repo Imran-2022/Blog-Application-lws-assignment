@@ -1,6 +1,6 @@
 import axios from "../../utils/axios";
 
-export const getRelatedVideos = async ({ tags, id }) => {
+export const getRelatedPosts = async ({ tags, id }) => {
 
 // ?tags_like=javascript&tags_like=react&id_ne=4&_limit=5
 // ['tags_like=javascript', 'tags_like=react']

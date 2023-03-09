@@ -3,7 +3,7 @@ import { getPost } from "./singlePostAPI";
 
 
 const initialState = {
-    video: {},
+    singlePost: {},
     isLoading: false,
     isError: false,
     error: '',
@@ -11,31 +11,31 @@ const initialState = {
 
 //async thunk
 
-export const fetchvideo = createAsyncThunk('video/fetchvideo', async (id) => {
+export const fetchPost = createAsyncThunk('video/fetchvideo', async (id) => {
     const video = await getPost(id);
     return video;
 })
 
-const videoSlice = createSlice({
-    name: "video",
+const singlePostSlice = createSlice({
+    name: "singlePost",
     initialState,
     extraReducers: (builder) => {
         builder
-            .addCase(fetchvideo.pending, (state) => {
+            .addCase(fetchPost.pending, (state) => {
                 state.isError = false;
                 state.isLoading = true;
             })
-            .addCase(fetchvideo.fulfilled, (state, action) => {
+            .addCase(fetchPost.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.video = action.payload;
+                state.singlePost = action.payload;
             })
-            .addCase(fetchvideo.rejected, (state, action) => {
+            .addCase(fetchPost.rejected, (state, action) => {
                 state.isLoading = false;
-                state.video = {};
+                state.singlePost = {};
                 state.isError = true;
                 state.error = action.error.message;
             })
     }
 })
 
-export default videoSlice.reducer;
+export default singlePostSlice.reducer;

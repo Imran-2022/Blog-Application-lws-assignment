@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RelatedPost = ({video}) => {
-  const {id,tags,title,image,createdAt}=video;
+const RelatedPost = ({post}) => {
+  const {id,tags,title,image,createdAt}=post;
 
     return (
         <div className="card">
@@ -11,7 +11,7 @@ const RelatedPost = ({video}) => {
                 <Link to={`/posts/${id}`} className="text-lg post-title lws-RelatedPostTitle">{title}</Link>
                 <div className="mb-0 tags">
                     {
-                        tags.map(tag => <span>{tag},</span>)
+                        tags.map((tag,idx) => <span key={idx}>{tag},</span>)
                     }
                 </div>
                 <p>{createdAt}</p>

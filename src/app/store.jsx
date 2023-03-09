@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postsSlice from "../features/posts/postsSlice";
-import videoSlice from "../features/post/singlePostSlice";
 import filterSlice from "../features/filter/filterSlice";
-import relatedVideosSlice from "../features/relatedVideos/relatedVideosSlice";
+import relatedPostsSlice from "../features/relatedVideos/relatedPostsSlice";
+import singlePostSlice from "../features/post/singlePostSlice";
 
 export const store = configureStore({
     reducer: {
         posts: postsSlice,
-        video:videoSlice,
+        singlePost:singlePostSlice,
         filter:filterSlice,
-        relatedVideos:relatedVideosSlice,
+        relatedPosts:relatedPostsSlice,
     },
 });

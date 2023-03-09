@@ -10,7 +10,7 @@ const Like_Saved = ({ id, likes, isSaved }) => {
 
     useEffect(() => {
         setLike(likes)
-    }, [id])
+    }, [likes])
 
     const handleLike = async () => {
         setLike(pre => pre + 1)
@@ -24,7 +24,7 @@ const Like_Saved = ({ id, likes, isSaved }) => {
             },
         });
         const dt = await response.json();
-        console.log("dt", dt);
+        // console.log("dt", dt);
     }
 
 
@@ -40,7 +40,7 @@ const Like_Saved = ({ id, likes, isSaved }) => {
             },
         });
         const dt = await response.json();
-        console.log("dt", dt);
+        // console.log("dt", dt);
 
     }
     const hanldeUnSaved=async()=>{
@@ -55,7 +55,7 @@ const Like_Saved = ({ id, likes, isSaved }) => {
             },
         });
         const dt = await response.json();
-        console.log("dt", dt);
+        // console.log("dt", dt);
     }
 
     return (

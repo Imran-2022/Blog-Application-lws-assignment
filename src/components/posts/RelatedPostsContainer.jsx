@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { fetchrelatedVideos } from '../../features/relatedVideos/relatedVideosSlice';
 import RelatedPost from './RelatedPost';
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchrelatedPosts } from '../../features/relatedVideos/relatedPostsSlice';
 
-const RelatedPostsContainer = ({video}) => {
-  const {tags,id}=video;
+const RelatedPostsContainer = ({singlePost}) => {
+  const {tags,id}=singlePost;
   const dispatch = useDispatch()
-  const { relatedVideos, isLoading, isError, error } = useSelector(state => state.relatedVideos)
+  const { relatedPosts, isLoading, isError, error } = useSelector(state => state.relatedPosts)
   useEffect(() => {
-    dispatch(fetchrelatedVideos({ tags, id }))
+    dispatch(fetchrelatedPosts({ tags, id }))
   }, [dispatch, tags, id])
 
   // decide what to render 
@@ -16,9 +16,9 @@ const RelatedPostsContainer = ({video}) => {
   let content = null;
   if (isLoading) content = <p>Loading !</p>
   if (!isLoading && isError) content = <div className="col-span-12">{error}</div>
-  if (!isError && !isLoading && relatedVideos.length === 0) content = <div className="col-span-12">No related videos Found</div>
-  if (!isError && !isLoading && relatedVideos.length > 0) {
-    content = relatedVideos.map(video => <RelatedPost key={video.id} video={video} />)
+  if (!isError && !isLoading && relatedPosts.length === 0) content = <div className="col-span-12">No related videos Found</div>
+  if (!isError && !isLoading && relatedPosts.length > 0) {
+    content = relatedPosts.map(dt => <RelatedPost key={dt.id} post={dt} />)
   }
 
   return (

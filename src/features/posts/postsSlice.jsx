@@ -10,12 +10,12 @@ const initialState = {
 
 // async thunk
 export const fetchBlogs = createAsyncThunk("videos/fetchVideos", async () => {
-    const videos = await getPosts();
-    return videos;
+    const posts = await getPosts();
+    return posts;
 });
 
 const postSlice = createSlice({
-    name: "videos",
+    name: "posts",
     initialState,
     extraReducers: (builder) => {
         builder

@@ -35,7 +35,7 @@ const Posts = () => {
         if (sort == 'default') {
             return true;
         } else if (sort == 'newest') {
-            return new Date(a.createdAt) -new Date(b.createdAt) ;
+            return new Date(b.createdAt) -new Date(a.createdAt) ;
         } else if (sort == 'most_liked') {
             return parseFloat(b.likes) - parseFloat(a.likes);
         }

@@ -2,27 +2,27 @@ import React, { useEffect } from 'react';
 import DetailedPost from './DetailedPost';
 import RelatedPostsContainer from './RelatedPostsContainer';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchvideo } from '../../features/post/singlePostSlice';
+import { fetchPost } from '../../features/post/singlePostSlice';
 import { useParams } from 'react-router-dom';
 
 const PostContainer = () => {
     const dispatch = useDispatch();
-    const { videoId } = useParams();
+    const { postId } = useParams();
 
-    const { video, isLoading, isError, error } = useSelector(
-        (state) => state.video
+    const { singlePost, isLoading, isError, error } = useSelector(
+        (state) => state.singlePost
     );
 
     useEffect(() => {
-        dispatch(fetchvideo(videoId));
-    }, [dispatch,videoId]);
+        dispatch(fetchPost(postId));
+    }, [dispatch,postId]);
 
 
 
     return (
         <section className="post-page-container">
-            <DetailedPost  video={video}/>
-            <RelatedPostsContainer video={video} />
+            <DetailedPost  singlePost={singlePost}/>
+            <RelatedPostsContainer singlePost={singlePost} />
         </section>
     );
 };

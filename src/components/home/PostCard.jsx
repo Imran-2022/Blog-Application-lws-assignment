@@ -16,7 +16,7 @@ const PostCard = ({ post = {} }) => {
                 <Link to={`/posts/${id}`} className="lws-postTitle">{title}</Link>
 
                 <div className="lws-tags">{
-                    tags.map(tag => <span>{tag},</span>)
+                    tags.map((tag,idx) => <span key={idx}>{tag},</span>)
                 }</div>
 
                 {
