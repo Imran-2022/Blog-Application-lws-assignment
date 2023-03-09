@@ -19,9 +19,12 @@ const PostCard = ({ post = {} }) => {
                     tags.map(tag => <span>{tag}</span>)
                 }</div>
 
-                <div className="flex gap-2 mt-4">
-                    <span className="lws-badge"> {isSaved} </span>
-                </div>
+                {
+                    isSaved && <div className="flex gap-2 mt-4">
+                        <span className="lws-badge"> saved </span>
+                    </div>
+                }
+
             </div>
         </div>
     );
