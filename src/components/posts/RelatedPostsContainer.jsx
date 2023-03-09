@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import RelatedPost from './RelatedPost';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchrelatedPosts } from '../../features/relatedVideos/relatedPostsSlice';
+import { fetchrelatedPosts } from '../../features/relatedPosts/relatedPostsSlice';
 
 const RelatedPostsContainer = ({singlePost}) => {
   const {tags,id}=singlePost;
