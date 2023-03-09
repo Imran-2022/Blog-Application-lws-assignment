@@ -28,9 +28,19 @@ const Posts = () => {
             return dt.isSaved;
         }
         return true;
-        
+
     }
 
+    const myFun=(a, b) =>{
+        if (sort == 'default') {
+            return true;
+        } else if (sort == 'newest') {
+            return new Date(a.createdAt) -new Date(b.createdAt) ;
+        } else if (sort == 'most_liked') {
+            return parseFloat(b.likes) - parseFloat(a.likes);
+        }
+        return true;
+    }
 
     // filter before showing in home page end
 
@@ -48,6 +58,7 @@ const Posts = () => {
     if (!isError && !isLoading && posts?.length > 0) {
         content = posts
             .filter(filterByStatus)
+            .slice().sort(myFun)
             .map((post) => (
                 <PostCard key={post.id} post={post} />
             ));
