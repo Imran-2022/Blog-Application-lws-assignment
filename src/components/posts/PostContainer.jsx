@@ -22,7 +22,7 @@ const PostContainer = () => {
     return (
         <section className="post-page-container">
             <DetailedPost  video={video}/>
-            <RelatedPostsContainer />
+            <RelatedPostsContainer video={video} />
         </section>
     );
 };
