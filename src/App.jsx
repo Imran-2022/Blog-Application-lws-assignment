@@ -10,7 +10,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/posts' element={<PostDetails />} />
+        <Route path='/posts/:videoId' element={<PostDetails />} />
       </Routes>
     </div>
   )

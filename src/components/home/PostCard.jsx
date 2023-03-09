@@ -5,7 +5,7 @@ const PostCard = ({ post = {} }) => {
     const { createdAt, id, image, isSaved, likes, tags, title } = post;
     return (
         <div className="lws-card">
-            <Link to="/posts"><img src={image} className="lws-card-image" alt="" /></Link>
+            <Link to={`/posts/${id}`}><img src={image} className="lws-card-image" alt="" /></Link>
 
             <div className="p-4">
                 <div className="lws-card-header">
@@ -13,7 +13,7 @@ const PostCard = ({ post = {} }) => {
                     <p className="lws-likeCount"><i className="fa-regular fa-thumbs-up"></i>{likes}</p>
                 </div>
 
-                <Link to="/posts" className="lws-postTitle">{title}</Link>
+                <Link to={`/posts/${id}`} className="lws-postTitle">{title}</Link>
 
                 <div className="lws-tags">{
                     tags.map(tag => <span>{tag}</span>)
